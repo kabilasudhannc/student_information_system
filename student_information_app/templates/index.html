@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block content %}
+    <body class="hold-transition login-page" id='bg' style="background-image: url('{% static 'images/background.jpg'%}'); background-size: 1800px;">
+<div class="login-box">
+  <div class="login-logo">
+    <a><b><strong style="color: black;">Student Information System</strong></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Welcome to Student Information System</p>
+    <div class="col-12">
+      <a href="{% url 'login' %}">
+            <button type="submit" class="btn btn-primary btn-block">Sign In & Sign Up</button>
+      </a>
+    </div>
+  </div>
+</div>
+<!-- /.login-box -->
+{% endblock %}

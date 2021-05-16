@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<title>Sign Up to Student Information System</title>
+    <body class="hold-transition login-page" id='bg' style="background-image: url('{% static 'images/background.jpg'%}'); background-size: 1800px;">
+<div class="login-box">
+  <div class="login-logo">
+    <a><strong style="color: black;">Student Information System</strong></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Sign Up to Student Information System</p>
+
+      <form action="/do_staff_signup" method="POST">
+      {% csrf_token %}
+        <label>Email:</label>
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="Email" name="email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+
+        <label>Username:</label>
+          <div class="input-group mb-3">
+          <input type="username" class="form-control" placeholder="Username" name="username">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user-circle"></span>
+            </div>
+          </div>
+        </div>
+
+        <label>Password:</label>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Password" name="password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+
+        <label>Firstname:</label>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="First Name" name="first_name">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="far fa-user-circle"></span>
+            </div>
+          </div>
+        </div>
+
+        <label>Lastname:</label>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Last Name" name="last_name">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="far fa-user-circle"></span>
+            </div>
+          </div>
+        </div>
+
+        <label>Address:</label>
+          <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Address" name="address">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fa fa-address-card"></span>
+            </div>
+          </div>
+        </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+          </div>
+
+
+          {% comment %} Display Messages {% endcomment %}
+          {% if messages %}
+          <div class="col-12">
+            {% for message in messages %}
+              {% if message.tags == "error" %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                  {{ message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <!-- /.col -->
+        </div>
+      </form>
+
+
+  </div>
+</div>
+<!-- /.login-box -->
+
+{% endblock %}
